@@ -25,8 +25,8 @@ void visualize(vtkSmartPointer<vtkPolyData> reference, vtkSmartPointer<vtkPolyDa
 
 int main(int, char *[])
 {
-	const char* filePathReferenceData = ".../ReferenceMesh.vtk";
-	const char* filePathTargetData = ".../TargetMesh.vtk";
+	const char* filePathReferenceData = "../ReferenceMesh.vtk";
+	const char* filePathTargetData = "../TargetMesh.vtk";
 	//const char* filePathAlignedOutput = "C:/VTK/Reader/AlignedOutput.vtk";
 
 	vtkSmartPointer<vtkPolyData> reference;
@@ -135,7 +135,7 @@ void visualize(vtkSmartPointer<vtkPolyData> reference,
 
 	landmarktransform->SetSourceLandmarks(targetLandmarkPoints);
 	landmarktransform->SetTargetLandmarks(referenceLandmarkPoints);
-	landmarktransform->SetModeToRigidBody();
+	landmarktransform->SetModeToRigidBody();// here you can set other modes like SetModeToSimilarity();
 	landmarktransform->Update();
 
 	vtkSmartPointer<vtkTransformPolyDataFilter> transformFilter1 =
@@ -158,7 +158,7 @@ void visualize(vtkSmartPointer<vtkPolyData> reference,
 
 	vtkSmartPointer<vtkPolyDataWriter> writer =
 		vtkSmartPointer<vtkPolyDataWriter>::New();
-	writer->SetFileName("AlignedOutput.vtk");
+	writer->SetFileName("RigidAlignedOutput.vtk");
 	writer->SetInputData(alignedOutput);
 	writer->Write();
 
