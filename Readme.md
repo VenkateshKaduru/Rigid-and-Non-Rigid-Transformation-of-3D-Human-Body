@@ -18,7 +18,7 @@
 
 ## Building
 1. Install VTK
-1. Build the code by using CMake
+1. Build the main.cpp file by using CMake
 1. Provid reference and target meshes file paths as input in the code
 1.  To save the aligned output, provid output file name and path in the code
 1. Provide the reference and target meshes landmark points in the code
