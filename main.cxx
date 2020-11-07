@@ -25,8 +25,8 @@ void visualize(vtkSmartPointer<vtkPolyData> reference, vtkSmartPointer<vtkPolyDa
 
 int main(int, char *[])
 {
-	const char* filePathReferenceData = "D:\HP_Laptop\Thesis\Reader\mean.vtk";
-	const char* filePathTargetData = "D:\HP_Laptop\Thesis\Reader\Venkatesh_Mesh.vtk";
+	const char* filePathReferenceData = ".../ReferenceMesh.vtk";
+	const char* filePathTargetData = ".../TargetMesh.vtk";
 	//const char* filePathAlignedOutput = "C:/VTK/Reader/AlignedOutput.vtk";
 
 	vtkSmartPointer<vtkPolyData> reference;
@@ -60,6 +60,7 @@ void visualize(vtkSmartPointer<vtkPolyData> reference,
 		vtkSmartPointer<vtkTransformFilter>::New();
 	transformFilter->SetInputData(target);
 	transformFilter->SetTransform(transform);
+	transformfilter->Update();
 
 
 	// Compute the center of mass but is it necessary!, No
